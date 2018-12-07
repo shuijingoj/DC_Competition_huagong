@@ -1,0 +1,298 @@
+web：http://119.3.79.230:32786
+b74f23e8-eb53-4204-9413-91f787444ef4
+
+jupter：http://119.3.79.230:32784
+
+wget -q -O - http://119.3.79.230:10008//submit?ssh=32787
+
+13414454987
+GrayRui1994
+
+web: http://119.3.79.230:32798
+93b589a2-c04b-4651-84b0-543fe65f82d4
+
+jupyter: http://119.3.79.230:32796
+9b39f5f7b43fb9ca5a99bc7d0eec892720fe24a0aa3aeda0
+
+wget -q -O - http://119.3.79.230:10008//submit?ssh=32799
+
+【留一法LGBM】
+model = lgb.LGBMRegressor(objective='regression',max_depth=-1, num_leaves=64,learning_rate=0.05,\
+                          n_estimators=30, bagging_freq=5, bagging_feaction=1.0, feature_fraction=0.7)
+
+（特征仅均值）
+n_estimators=30
+The RMSE on validation set of phosphorus_content: 0.26997
+The RMSE on validation set of nitrogen_content: 0.14530
+The RMSE on validation set of total_nutrient: 0.25729
+The RMSE on validation set of water_content: 0.22625
+The RMSE on validation set of particle_size: 2.51992
+
+n_estimators=50
+The RMSE on validation set of phosphorus_content: 0.26797
+The RMSE on validation set of nitrogen_content: 0.13920
+The RMSE on validation set of total_nutrient: 0.26155
+The RMSE on validation set of water_content: 0.22454
+The RMSE on validation set of particle_size: 2.51371
+
+n_estimators=100
+The RMSE on validation set of phosphorus_content: 0.26938
+The RMSE on validation set of nitrogen_content: 0.13569
+The RMSE on validation set of total_nutrient: 0.26488
+The RMSE on validation set of water_content: 0.22586
+The RMSE on validation set of particle_size: 2.58786
+
+(移除三个无用样本)【1】
+n_estimators=30
+The RMSE on validation set of phosphorus_content: 0.26570
+The RMSE on validation set of nitrogen_content: 0.14307
+The RMSE on validation set of total_nutrient: 0.25411
+The RMSE on validation set of water_content: 0.22657
+The RMSE on validation set of particle_size: 2.50043    0.33089
+
+n_estimators=50
+The RMSE on validation set of phosphorus_content: 0.26663
+The RMSE on validation set of nitrogen_content: 0.13859
+The RMSE on validation set of total_nutrient: 0.25804
+The RMSE on validation set of water_content: 0.22447
+The RMSE on validation set of particle_size: 2.53759
+
+n_estimators=70
+The RMSE on validation set of phosphorus_content: 0.26742
+The RMSE on validation set of nitrogen_content: 0.13575
+The RMSE on validation set of total_nutrient: 0.25989
+The RMSE on validation set of water_content: 0.22303
+The RMSE on validation set of particle_size: 2.54978
+
+The RMSE on validation set of phosphorus_content: 0.26768（25）
+The RMSE on validation set of nitrogen_content: 0.13555（100）
+The RMSE on validation set of total_nutrient: 0.25600（25）
+The RMSE on validation set of water_content: 0.22624（100）
+The RMSE on validation set of particle_size: 2.49567（25）
+
+The RMSE on validation set of phosphorus_content: 0.26675（40）
+The RMSE on validation set of nitrogen_content: 0.13546（120）
+The RMSE on validation set of total_nutrient: 0.25557（40）
+The RMSE on validation set of water_content: 0.22773（120）
+The RMSE on validation set of particle_size: 2.50024（20）
+
+epochs = [30, 125, 30, 70, 25]【2】
+The RMSE on validation set of phosphorus_content: 0.26570（30）
+The RMSE on validation set of nitrogen_content: 0.13536（125）
+The RMSE on validation set of total_nutrient: 0.25411（30）
+The RMSE on validation set of water_content: 0.22303（70）
+The RMSE on validation set of particle_size: 2.49567（25）  0.33995
+
+epochs = [30, 125, 30, 70, 25] +返料比
+The RMSE on validation set of phosphorus_content: 0.26262
+The RMSE on validation set of nitrogen_content: 0.13216
+The RMSE on validation set of total_nutrient: 0.25423
+The RMSE on validation set of water_content: 0.22388
+The RMSE on validation set of particle_size: 2.51462
+
+epochs = [30, 125, 30, 70, 25] +返料比返料差
+The RMSE on validation set of phosphorus_content: 0.26941
+The RMSE on validation set of nitrogen_content: 0.13425
+The RMSE on validation set of total_nutrient: 0.25623
+The RMSE on validation set of water_content: 0.22168
+The RMSE on validation set of particle_size: 2.49060
+
+【留一法SVR】
+（特征仅均值）
+(144全样本)
+model = SVR(gamma='scale')
+The RMSE on validation set of phosphorus_content: 0.26610
+The RMSE on validation set of nitrogen_content: 0.14590
+The RMSE on validation set of total_nutrient: 0.27313
+The RMSE on validation set of water_content: 0.22339
+The RMSE on validation set of particle_size: 2.40866
+
+(移除三个无用样本)【1】【2】
+model = SVR(gamma='scale')
+The RMSE on validation set of phosphorus_content: 0.26813
+The RMSE on validation set of nitrogen_content: 0.14766
+The RMSE on validation set of total_nutrient: 0.27125
+The RMSE on validation set of water_content: 0.22623
+The RMSE on validation set of particle_size: 2.38478    0.32859
+
+model = SVR(gamma='scale'， C=0.2)
+The RMSE on validation set of phosphorus_content: 0.26645
+The RMSE on validation set of nitrogen_content: 0.14495
+The RMSE on validation set of total_nutrient: 0.26924
+The RMSE on validation set of water_content: 0.22172
+The RMSE on validation set of particle_size: 2.46626
+
+C_list = [0.3, 0.2, 0.1, 0.1, 1.4]
+The RMSE on validation set of phosphorus_content: 0.26640
+The RMSE on validation set of nitrogen_content: 0.14495
+The RMSE on validation set of total_nutrient: 0.26855
+The RMSE on validation set of water_content: 0.22087
+The RMSE on validation set of particle_size: 2.38327
+
++返料比
+The RMSE on validation set of phosphorus_content: 0.26810
+The RMSE on validation set of nitrogen_content: 0.14772
+The RMSE on validation set of total_nutrient: 0.27110
+The RMSE on validation set of water_content: 0.22598
+The RMSE on validation set of particle_size: 2.38224
+
+【留一法KNN】
+（特征仅均值）
+k=1
+The RMSE on validation set of phosphorus_content: 0.33915
+The RMSE on validation set of nitrogen_content: 0.18589
+The RMSE on validation set of total_nutrient: 0.33908
+The RMSE on validation set of water_content: 0.26461
+The RMSE on validation set of particle_size: 3.46879
+
+k=3 K平均
+The RMSE on validation set of phosphorus_content: 0.29338
+The RMSE on validation set of nitrogen_content: 0.16040
+The RMSE on validation set of total_nutrient: 0.29322
+The RMSE on validation set of water_content: 0.23258
+The RMSE on validation set of particle_size: 2.98913
+
+K=3 逆余弦距离加权
+The RMSE on validation set of phosphorus_content: 0.28197
+The RMSE on validation set of nitrogen_content: 0.15487
+The RMSE on validation set of total_nutrient: 0.28304
+The RMSE on validation set of water_content: 0.23321
+The RMSE on validation set of particle_size: 2.86667
+
+k=10 K平均
+The RMSE on validation set of phosphorus_content: 0.27903
+The RMSE on validation set of nitrogen_content: 0.15957
+The RMSE on validation set of total_nutrient: 0.27157
+The RMSE on validation set of water_content: 0.22402
+The RMSE on validation set of particle_size: 2.58248
+
+k=20 K平均
+The RMSE on validation set of phosphorus_content: 0.28060
+The RMSE on validation set of nitrogen_content: 0.15876
+The RMSE on validation set of total_nutrient: 0.26919
+The RMSE on validation set of water_content: 0.22892
+The RMSE on validation set of particle_size: 2.51074
+
+K=all 逆余弦距离加权
+The RMSE on validation set of phosphorus_content: 0.27286
+The RMSE on validation set of nitrogen_content: 0.16811
+The RMSE on validation set of total_nutrient: 0.26776
+The RMSE on validation set of water_content: 0.22004
+The RMSE on validation set of particle_size: 2.48000
+
+K=all 逆余弦距离加权+返料比
+The RMSE on validation set of phosphorus_content: 0.27286
+The RMSE on validation set of nitrogen_content: 0.16810
+The RMSE on validation set of total_nutrient: 0.26776
+The RMSE on validation set of water_content: 0.22004
+The RMSE on validation set of particle_size: 2.47998
+
+【stacking(LGBM)】
+-0.55024 0.30403 LGBM+SVR【1】 train_test分割种子0
+
+n_estimators=100
+The RMSE on validation set of phosphorus_content: 0.16427
+The RMSE on validation set of nitrogen_content: 0.09422
+The RMSE on validation set of total_nutrient: 0.18249
+The RMSE on validation set of water_content: 0.12761
+The RMSE on validation set of particle_size: 2.04450   0.29145 LGBM+SVR【1】 缺一样本
+
+n_estimators=100
+The RMSE on validation set of phosphorus_content: 0.17140
+The RMSE on validation set of nitrogen_content: 0.10188
+The RMSE on validation set of total_nutrient: 0.18201
+The RMSE on validation set of water_content: 0.12905
+The RMSE on validation set of particle_size: 1.85336   0.32171 LGBM+SVR【1】 全样本
+
+n_estimators=70
+The RMSE on validation set of phosphorus_content: 0.15639
+The RMSE on validation set of nitrogen_content: 0.09550
+The RMSE on validation set of total_nutrient: 0.17985
+The RMSE on validation set of water_content: 0.12675
+The RMSE on validation set of particle_size: 1.96856
+
+n_estimators=50
+The RMSE on validation set of phosphorus_content: 0.15651
+The RMSE on validation set of nitrogen_content: 0.09557
+The RMSE on validation set of total_nutrient: 0.18156
+The RMSE on validation set of water_content: 0.12679
+The RMSE on validation set of particle_size: 1.92250
+
+n_estimators=30
+The RMSE on validation set of phosphorus_content: 0.16783
+The RMSE on validation set of nitrogen_content: 0.10384
+The RMSE on validation set of total_nutrient: 0.18895
+The RMSE on validation set of water_content: 0.12789
+The RMSE on validation set of particle_size: 1.93650
+
+epochs = [70, 100, 70, 70, 50]
+The RMSE on validation set of phosphorus_content: 0.15639
+The RMSE on validation set of nitrogen_content: 0.09422
+The RMSE on validation set of total_nutrient: 0.17985
+The RMSE on validation set of water_content: 0.12675
+The RMSE on validation set of particle_size: 1.92250  0.29357
+
+epochs = [70, 100, 70, 70, 50] 【1】补充最后样本
+The RMSE on validation set of phosphorus_content: 0.16708
+The RMSE on validation set of nitrogen_content: 0.10188
+The RMSE on validation set of total_nutrient: 0.18107
+The RMSE on validation set of water_content: 0.12927
+The RMSE on validation set of particle_size: 1.79229
+
+epochs = [70, 100, 70, 70, 50]【2】
+The RMSE on validation set of phosphorus_content: 0.16967
+The RMSE on validation set of nitrogen_content: 0.05887
+The RMSE on validation set of total_nutrient: 0.18076
+The RMSE on validation set of water_content: 0.10443
+The RMSE on validation set of particle_size: 1.86523  0.30655
+
+LGBM+SVR+KNN 【1】
+epochs = [100, 100, 100, 100, 100]
+The RMSE on validation set of phosphorus_content: 0.15837
+The RMSE on validation set of nitrogen_content: 0.09920
+The RMSE on validation set of total_nutrient: 0.17109
+The RMSE on validation set of water_content: 0.13150
+The RMSE on validation set of particle_size: 1.75044 0.30704
+
+LGBM+SVR+KNN
+epochs = [70, 100, 70, 70, 50]【2】
+The RMSE on validation set of phosphorus_content: 0.15612
+The RMSE on validation set of nitrogen_content: 0.05923
+The RMSE on validation set of total_nutrient: 0.17106
+The RMSE on validation set of water_content: 0.10230
+The RMSE on validation set of particle_size: 1.81214 0.28992
+
+LGBM+SVR(C[4]=1.4)+KNN
+The RMSE on validation set of phosphorus_content: 0.15630
+The RMSE on validation set of nitrogen_content: 0.05879
+The RMSE on validation set of total_nutrient: 0.17128
+The RMSE on validation set of water_content: 0.10286
+The RMSE on validation set of particle_size: 1.80191 0.29890
+
+LGBM+SVR(C最优)+KNN
+The RMSE on validation set of phosphorus_content: 0.16239
+The RMSE on validation set of nitrogen_content: 0.06087
+The RMSE on validation set of total_nutrient: 0.17274
+The RMSE on validation set of water_content: 0.10331
+The RMSE on validation set of particle_size: 1.82807 0.30747
+
+LGBM+SVR+KNN+返料比
+The RMSE on validation set of phosphorus_content: 0.15176
+The RMSE on validation set of nitrogen_content: 0.06062
+The RMSE on validation set of total_nutrient: 0.17497
+The RMSE on validation set of water_content: 0.11104
+The RMSE on validation set of particle_size: 1.77425 0.31314
+
+LGBM+SVR+KNN+返料比+返料差
+The RMSE on validation set of phosphorus_content: 0.16003
+The RMSE on validation set of nitrogen_content: 0.06157
+The RMSE on validation set of total_nutrient: 0.16864
+The RMSE on validation set of water_content: 0.11425
+The RMSE on validation set of particle_size: 1.81717
+
+【stacking(LR)】
+The RMSE on validation set of phosphorus_content: 0.13496
+The RMSE on validation set of nitrogen_content: 0.04921
+The RMSE on validation set of total_nutrient: 0.14206
+The RMSE on validation set of water_content: 0.08693
+The RMSE on validation set of particle_size: 1.71092 0.35031
