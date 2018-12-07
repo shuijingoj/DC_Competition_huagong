@@ -1,0 +1,33 @@
+第一分支：
+【main1.ipynb】
+1.运行Load Data模块读入原始数据；
+
+2.运行Preprocessing 1模块给检测数据加上对应的批次id，产生train_with_id和test_with_id文件；
+
+3.运行Preprocessing 2模块提取检测数据特征，提交的模型仅使用了每一批次的均值，因为在A榜上测试效果好；
+
+4.运行Train 1模块准备数据，移除特征值全为空的样本，以均值填补缺失值；
+
+5.运行Train 2-2*: “lightGBM 全数据集训练模型，直接产生测试结果”；
+
+6.运行Train 2-4*: “SVR 全数据集训练模型，直接产生测试结果”；
+
+7.运行Train 2-5*: “KNN距离加权 全数据集训练模型，直接产生测试结果”
+
+8. simple stacking “模块输出测试结果”，将上述三个模型的测试结果再进行简单stacking融合，得到A榜0.28992的结果；
+
+
+第二分支:
+【preprocess.py】
+9.运行预处理preprocess.py 得到含样本对应批次时间均值特征的训练数据train_mean.csv和test_mean.csv；
+
+【train_round1.py】
+10.运行train_round1.py 得到lightgbm模型以及svr模型对应的训练集预测结果和测试集预测结果train_data_lgb.csv,test_data_lgb.csv,train_data_svr.csv,test_data_svr.csv；
+
+【train_round2.py】
+11.运行train_round2.py 得到mlp模型对一轮训练两个模型预测的融合结果训练得到A榜0.288429的结果；
+
+
+一、二分支融合：
+【main1.ipynb】
+运行result merge模块，以A榜得分倒数为权重加权融合，得到最终结果A榜0.280405。
